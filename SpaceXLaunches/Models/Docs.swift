@@ -1,105 +1,100 @@
-/* 
-Copyright (c) 2024 Swift Models Generated from JSON powered by http://www.json4swift.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar
-
-*/
+//
+//  Docs.swift
+//  SpaceXLaunches
+//
+//  Created by Ibrahim Hosseini on 4/30/24.
+//
 
 import Foundation
+
 struct Docs : Codable {
-	let fairings : String?
+	let fairings : Fairings?
 	let links : Links?
-	let static_fire_date_utc : String?
-	let static_fire_date_unix : String?
+	let staticFireDateUTC : String?
+	let staticFireDateUnix : Int?
 	let net : Bool?
-	let window : String?
+	let window : Int?
 	let rocket : String?
 	let success : Bool?
-	let failures : [String]?
+	let failures : [Failures]?
 	let details : String?
 	let crew : [Crew]?
 	let ships : [String]?
 	let capsules : [String]?
 	let payloads : [String]?
 	let launchpad : String?
-	let flight_number : Int?
+	let flightNumber : Int?
 	let name : String?
-	let date_utc : String?
-	let date_unix : Int?
-	let date_local : String?
-	let date_precision : String?
+	let dateUTC : String?
+	let dateUnix : Int?
+	let dateLocal : String?
+	let datePrecision : String?
 	let upcoming : Bool?
 	let cores : [Cores]?
-	let auto_update : Bool?
+	let autoUpdate : Bool?
 	let tbd : Bool?
-	let launch_library_id : String?
+	let launchLibraryId : String?
 	let id : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case fairings = "fairings"
-		case links = "links"
-		case static_fire_date_utc = "static_fire_date_utc"
-		case static_fire_date_unix = "static_fire_date_unix"
-		case net = "net"
-		case window = "window"
-		case rocket = "rocket"
-		case success = "success"
-		case failures = "failures"
-		case details = "details"
-		case crew = "crew"
-		case ships = "ships"
-		case capsules = "capsules"
-		case payloads = "payloads"
-		case launchpad = "launchpad"
-		case flight_number = "flight_number"
-		case name = "name"
-		case date_utc = "date_utc"
-		case date_unix = "date_unix"
-		case date_local = "date_local"
-		case date_precision = "date_precision"
-		case upcoming = "upcoming"
-		case cores = "cores"
-		case auto_update = "auto_update"
-		case tbd = "tbd"
-		case launch_library_id = "launch_library_id"
-		case id = "id"
+		case fairings
+		case links
+		case staticFireDateUTC = "static_fire_date_utc"
+		case staticFireDateUnix = "static_fire_date_unix"
+		case net
+		case window
+		case rocket
+		case success
+		case failures
+		case details
+		case crew
+		case ships
+		case capsules
+		case payloads
+		case launchpad
+		case flightNumber = "flight_number"
+		case name
+		case dateUTC = "date_utc"
+		case dateUnix = "date_unix"
+		case dateLocal = "date_local"
+		case datePrecision = "date_precision"
+		case upcoming
+		case cores
+		case autoUpdate = "auto_update"
+		case tbd
+		case launchLibraryId = "launch_library_id"
+		case id
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		fairings = try values.decodeIfPresent(String.self, forKey: .fairings)
+		fairings = try values.decodeIfPresent(Fairings.self, forKey: .fairings)
 		links = try values.decodeIfPresent(Links.self, forKey: .links)
-		static_fire_date_utc = try values.decodeIfPresent(String.self, forKey: .static_fire_date_utc)
-		static_fire_date_unix = try values.decodeIfPresent(String.self, forKey: .static_fire_date_unix)
+		staticFireDateUTC = try values.decodeIfPresent(String.self, forKey: .staticFireDateUTC)
+		staticFireDateUnix = try values.decodeIfPresent(Int.self, forKey: .staticFireDateUnix)
 		net = try values.decodeIfPresent(Bool.self, forKey: .net)
-		window = try values.decodeIfPresent(String.self, forKey: .window)
+		window = try values.decodeIfPresent(Int.self, forKey: .window)
 		rocket = try values.decodeIfPresent(String.self, forKey: .rocket)
 		success = try values.decodeIfPresent(Bool.self, forKey: .success)
-		failures = try values.decodeIfPresent([String].self, forKey: .failures)
+		failures = try values.decodeIfPresent([Failures].self, forKey: .failures)
 		details = try values.decodeIfPresent(String.self, forKey: .details)
 		crew = try values.decodeIfPresent([Crew].self, forKey: .crew)
 		ships = try values.decodeIfPresent([String].self, forKey: .ships)
 		capsules = try values.decodeIfPresent([String].self, forKey: .capsules)
 		payloads = try values.decodeIfPresent([String].self, forKey: .payloads)
 		launchpad = try values.decodeIfPresent(String.self, forKey: .launchpad)
-		flight_number = try values.decodeIfPresent(Int.self, forKey: .flight_number)
+		flightNumber = try values.decodeIfPresent(Int.self, forKey: .flightNumber)
 		name = try values.decodeIfPresent(String.self, forKey: .name)
-		date_utc = try values.decodeIfPresent(String.self, forKey: .date_utc)
-		date_unix = try values.decodeIfPresent(Int.self, forKey: .date_unix)
-		date_local = try values.decodeIfPresent(String.self, forKey: .date_local)
-		date_precision = try values.decodeIfPresent(String.self, forKey: .date_precision)
+		dateUTC = try values.decodeIfPresent(String.self, forKey: .dateUTC)
+		dateUnix = try values.decodeIfPresent(Int.self, forKey: .dateUnix)
+		dateLocal = try values.decodeIfPresent(String.self, forKey: .dateLocal)
+		datePrecision = try values.decodeIfPresent(String.self, forKey: .datePrecision)
 		upcoming = try values.decodeIfPresent(Bool.self, forKey: .upcoming)
 		cores = try values.decodeIfPresent([Cores].self, forKey: .cores)
-		auto_update = try values.decodeIfPresent(Bool.self, forKey: .auto_update)
+		autoUpdate = try values.decodeIfPresent(Bool.self, forKey: .autoUpdate)
 		tbd = try values.decodeIfPresent(Bool.self, forKey: .tbd)
-		launch_library_id = try values.decodeIfPresent(String.self, forKey: .launch_library_id)
+		launchLibraryId = try values.decodeIfPresent(String.self, forKey: .launchLibraryId)
 		id = try values.decodeIfPresent(String.self, forKey: .id)
 	}
 

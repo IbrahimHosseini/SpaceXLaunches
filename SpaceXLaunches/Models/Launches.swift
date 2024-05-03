@@ -15,21 +15,21 @@ struct Launches : Codable {
 	let pagingCounter : Int?
 	let hasPrevPage : Bool?
 	let hasNextPage : Bool?
-	let prevPage : String?
+	let prevPage : Int?
 	let nextPage : Int?
 
 	enum CodingKeys: String, CodingKey {
 
-		case docs = "docs"
-		case totalDocs = "totalDocs"
-		case limit = "limit"
-		case totalPages = "totalPages"
-		case page = "page"
-		case pagingCounter = "pagingCounter"
-		case hasPrevPage = "hasPrevPage"
-		case hasNextPage = "hasNextPage"
-		case prevPage = "prevPage"
-		case nextPage = "nextPage"
+		case docs
+		case totalDocs
+		case limit
+		case totalPages
+		case page
+		case pagingCounter
+		case hasPrevPage
+		case hasNextPage
+		case prevPage
+		case nextPage
 	}
 
 	init(from decoder: Decoder) throws {
@@ -42,7 +42,7 @@ struct Launches : Codable {
 		pagingCounter = try values.decodeIfPresent(Int.self, forKey: .pagingCounter)
 		hasPrevPage = try values.decodeIfPresent(Bool.self, forKey: .hasPrevPage)
 		hasNextPage = try values.decodeIfPresent(Bool.self, forKey: .hasNextPage)
-		prevPage = try values.decodeIfPresent(String.self, forKey: .prevPage)
+		prevPage = try values.decodeIfPresent(Int.self, forKey: .prevPage)
 		nextPage = try values.decodeIfPresent(Int.self, forKey: .nextPage)
 	}
 
