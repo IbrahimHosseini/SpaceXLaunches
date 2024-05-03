@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Network {
+class Network<EndpointType: APIEndpoint>: APIClient {
 
     private let apiHandler: APIHandler
     private let responseHandler: ResponseHandler
@@ -20,12 +20,14 @@ class Network {
         self.responseHandler = responseHandler
     }
 
-    func fetchRequest<T: Decodable>(type: T.Type, url: URL) async -> (Result<T, NetworkError>) {
-        let request = URLRequest(url: url)
+    func request<T: Decodable>(_ endpoint: EndpointType) async -> (Result<T, NetworkError>) {
+
+        guard let request = try? endpoint.asURLRequest()
+        else { return .failure(.badRequest)}
 
         do {
-            let data = try await apiHandler.getData(type: type, url: request)
-            let response = await responseHandler.getResponse(type: type, data: data)
+            let data = try await apiHandler.getData(type: T.self, url: request)
+            let response = await responseHandler.getResponse(type: T.self, data: data)
 
             switch response {
             case .success(let model):
@@ -35,7 +37,7 @@ class Network {
             }
 
         } catch {
-            return .failure(.NoData)
+            return .failure(.noData)
         }
     }
 }

@@ -8,15 +8,17 @@
 import Foundation
 
 enum NetworkError: LocalizedError {
-    case BadURL
-    case NoData
-    case DecodingFailed
+    case invalidURL
+    case noData
+    case decodingFailed
+    case badRequest
 
     var errorDescription: String? {
         switch self {
-        case .BadURL: "Bad Url"
-        case .NoData: "No Data"
-        case .DecodingFailed: "Decoding Failed"
+        case .invalidURL: "Invalid Url"
+        case .noData: "No Data"
+        case .decodingFailed: "Decoding Failed"
+        case .badRequest: "Bad Request"
         }
     }
 }

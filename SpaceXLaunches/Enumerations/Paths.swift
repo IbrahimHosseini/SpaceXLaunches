@@ -1,5 +1,5 @@
 //
-//  Endpoints.swift
+//  Paths.swift
 //  SpaceXLaunches
 //
 //  Created by Ibrahim Hosseini on 4/30/24.

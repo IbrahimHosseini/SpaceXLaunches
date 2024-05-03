@@ -18,7 +18,7 @@ class ResponseHandlerImp: ResponseHandler {
             let response = try JSONDecoder().decode(type.self, from: data)
             return .success(response)
         } catch {
-            return.failure(.DecodingFailed)
+            return .failure(.decodingFailed)
         }
     }
 }

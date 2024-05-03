@@ -3,8 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Release</key>
-	<string>https://api.spacexdata.com/</string>
+	<dict>
+		<key>baseURL</key>
+		<string>https://api.spacexdata.com/</string>
+	</dict>
 	<key>Debug</key>
-	<string>https://api.spacexdata.com/</string>
+	<dict>
+		<key>baseURL</key>
+		<string>https://api.spacexdata.com/</string>
+	</dict>
 </dict>
 </plist>

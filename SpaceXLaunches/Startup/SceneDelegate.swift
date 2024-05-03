@@ -11,33 +11,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    var coordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let sceneWindow = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: sceneWindow)
+        guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        window?.rootViewController = viewController
+        window = UIWindow(windowScene: windowScene)
+
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+
+        let missionCoordinator = MissionCoordinator()
+        missionCoordinator.start()
+
+        window?.rootViewController = missionCoordinator.navigationController
+
         window?.makeKeyAndVisible()
-    }
-
-    // the launcher view controller that implemented by view model
-    private var viewController: MissionListViewController {
-
-        // implement network layer
-        let network = Network(
-            apiHandler: APIHandlerImp(),
-            responseHandler: ResponseHandlerImp()
-        )
-
-        // implement mission list service
-
-        // implement view model
-        let viewModel = MissionListViewModel()
-
-        // return view controller by implemented via view model
-        return MissionListViewController()
     }
 }
 
