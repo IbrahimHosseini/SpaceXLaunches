@@ -10,7 +10,7 @@ import Combine
 class MissionListViewModel: ObservableObject {
 
     @Published var launchesList: Launches? = nil
-    @Published var error: String?
+    @Published var error: String = ""
 
     private var service: LaunchesListService
 

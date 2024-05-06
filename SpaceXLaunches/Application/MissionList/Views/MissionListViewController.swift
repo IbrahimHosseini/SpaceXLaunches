@@ -15,13 +15,13 @@ class MissionListViewController: UIViewController {
 
     private var viewModel: MissionListViewModel?
 
-    private var statusLabel: UILabel {
-        let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: view.bounds.midY),
-                                          size: CGSize(width: view.bounds.width, height: 50)))
-        label.text = "LOADING..."
-        label.textAlignment = .center
-        return label
-    }
+    private var statusLabel = UILabel()
+//    {
+//        let label = UILabel(frame: CGRect(x: 0, y: view.bounds.height/3, width: view.bounds.width, height: 50))
+//        label.text = "LOADING..."
+//        label.textAlignment = .center
+//        return label
+//    }
 
     private lazy var tableView = UITableView()
 
@@ -60,11 +60,11 @@ class MissionListViewController: UIViewController {
 
         title = "Launches"
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        view.addSubview(statusLabel)
-        statusLabel.center = view.center
+        navigationController?.navigationBar.isTranslucent = true
 
         setupTable()
+
+        updateMessageView("LOADING...")
 
     }
 
@@ -88,7 +88,8 @@ class MissionListViewController: UIViewController {
                 guard let self else { return }
 
                 self.statusLabel.textColor = .systemRed
-                self.statusLabel.text = error
+                self.updateMessageView(error)
+
             })
             .store(in: &cancellable)
     }
@@ -97,6 +98,18 @@ class MissionListViewController: UIViewController {
         Task {
             await viewModel?.fetch(page, limit: limit)
         }
+    }
+
+    private func updateMessageView(_ message: String) {
+        let statusView = UIView()
+        statusView.addSubview(statusLabel)
+
+        statusLabel.text = message
+
+        statusLabel.centerXInSuperview()
+        statusLabel.centerYInSuperview()
+
+        tableView.backgroundView = statusView
     }
 }
 
@@ -132,7 +145,7 @@ extension MissionListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return docs.count
+        docs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -159,7 +172,7 @@ extension MissionListViewController: UITableViewDelegate, UITableViewDataSource 
 
         if indexPath.row == lastIndex,
            let list = viewModel?.launchesList,
-           let hasNextPage = list.hasNextPage,
+           list.hasNextPage ?? false,
            let nextPage = list.nextPage {
             self.callAPI(page: nextPage, limit: 50)
         }

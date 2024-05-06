@@ -108,8 +108,9 @@ class MissionTableViewCell: UITableViewCell {
 
         flightNumberLabel.text = "\(model.flightNumber ?? 0)"
 
-        statusLabel.text = (model.success ?? false) ? "Success" : "Fail"
-        statusLabel.textColor = (model.success ?? false) ? .systemGreen : .systemRed
+        let success = model.success ?? false
+        statusLabel.text = success ? "Success" : "Fail"
+        statusLabel.textColor = success ? .systemGreen : .systemRed
 
         descriptionLabel.text = model.details
 

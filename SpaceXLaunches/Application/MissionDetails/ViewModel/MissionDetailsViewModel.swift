@@ -46,8 +46,6 @@ class MissionDetailsViewModel: ObservableObject {
         }
 
         changeIsMarkedStatus(isMarked)
-
-        print("list", service.fetchBookmarks())
     }
 
     private func changeIsMarkedStatus(_ status: Bool) {
