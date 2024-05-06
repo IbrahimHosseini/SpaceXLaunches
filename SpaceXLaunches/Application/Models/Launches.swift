@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Launches : Codable {
 	let docs : [Docs]?
 	let totalDocs : Int?

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Cores : Codable {
 	let core : String?
 	let flight : Int?

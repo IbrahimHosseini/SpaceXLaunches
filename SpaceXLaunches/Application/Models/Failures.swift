@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Failures : Codable {
 	let time : Int?
 	let altitude : Int?

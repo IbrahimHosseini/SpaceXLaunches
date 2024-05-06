@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Crew : Codable {
 	let crew : String?
 	let role : String?

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Links : Codable {
 	let patch : Patch?
 	let reddit : Reddit?
