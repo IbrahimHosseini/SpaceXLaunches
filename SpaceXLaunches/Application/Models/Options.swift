@@ -8,7 +8,7 @@
 import Foundation
 
 struct Options: Codable {
-	var limit: Int = 50
+	var limit: Int
 	let page: Int
-    let sort: Sort?
+    let sort: Sort
 }

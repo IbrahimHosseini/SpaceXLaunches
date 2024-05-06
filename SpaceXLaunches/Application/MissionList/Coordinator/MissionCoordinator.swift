@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SafariServices
 
 class MissionCoordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
 
     var navigationController: UINavigationController
 
@@ -47,19 +47,43 @@ class MissionCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    public func pushToDetailsViewController(with id: String) {
+    public func pushToDetailsViewController(docs: Docs?) {
 
-        let viewModel = MissionDetailsViewModel()
+        guard let docs,
+              let id = docs.id
+        else { return }
 
-        let viewController = MissionDetailsViewController(viewModel)
+        let storage = UserDefaultStorage()
+
+        let service = MissionDetailsServiceImp(
+            docs: docs,
+            storageService: storage,
+            id: id
+        )
+
+        let viewModel = MissionDetailsViewModel(service: service)
+
+        let viewController = MissionDetailsViewController(
+            viewModel
+        )
+        
         viewController.coordinator = self
 
-        navigationController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(
+            viewController,
+            animated: true
+        )
 
     }
 
     // MARK: - pop to questionnaires list view
     public func popToRootViewController() {
         navigationController.popToRootViewController(animated: false)
+    }
+
+    func openUrl(_ url: String) {
+        if let url = URL(string: url) {
+            UIApplication.shared.open(url)
+        }
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 class MissionTableViewCell: UITableViewCell {
 
-
     private let flightNumberLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 35, weight: .heavy)
@@ -19,7 +18,7 @@ class MissionTableViewCell: UITableViewCell {
 
     private let icon: UIImageView = {
         let imageView = UIImageView()
-
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 
@@ -32,7 +31,7 @@ class MissionTableViewCell: UITableViewCell {
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.font = .systemFont(ofSize: 12, weight: .light)
         label.textColor = .systemGray
         label.text = "Description"
@@ -59,11 +58,14 @@ class MissionTableViewCell: UITableViewCell {
 
     private func layoutViews() {
 
+        contentView.backgroundColor = .systemBackground
+
         let margin = 8.0
 
         let hStack = UIStackView()
         hStack.spacing = margin*2
         hStack.distribution = .fill
+        hStack.alignment = .center
 
         contentView.addSubview(hStack)
         hStack.fillSuperview(
@@ -74,6 +76,11 @@ class MissionTableViewCell: UITableViewCell {
                 right: margin*2
             )
         )
+
+        // add mission icon
+        hStack.addArrangedSubview(icon)
+        icon.constrain(widthConstant: 30)
+        icon.constrain(heightConstant: 30)
 
         let vStack = UIStackView()
         vStack.spacing = margin
@@ -88,9 +95,6 @@ class MissionTableViewCell: UITableViewCell {
 
         // add flight number
         flightAndIconStack.addArrangedSubview(flightNumberLabel)
-
-        // add mission icon
-        flightAndIconStack.addArrangedSubview(icon)
 
         flightAndIconStack.addArrangedSubview(statusLabel)
 
@@ -122,6 +126,10 @@ class MissionTableViewCell: UITableViewCell {
 
         dateLabel.text = model.dateUTC?.toStringDate
 
+        if let icon = model.links?.patch?.small {
+            self.icon.load(with: icon)
+        }
+
     }
 
     override func prepareForReuse() {
@@ -130,6 +138,7 @@ class MissionTableViewCell: UITableViewCell {
         statusLabel.text = nil
         descriptionLabel.text = nil
         dateLabel.text = nil
+        icon.image = nil
     }
 
 }
