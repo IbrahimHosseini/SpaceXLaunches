@@ -15,16 +15,17 @@ class MissionListViewController: UIViewController {
 
     private var viewModel: MissionListViewModel?
 
-    private var errorLabel: UILabel {
+    private var statusLabel: UILabel {
         let label = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: view.bounds.midY),
                                           size: CGSize(width: view.bounds.width, height: 50)))
-        label.text = "error"
-        label.textColor = .systemRed
+        label.text = "LOADING..."
         label.textAlignment = .center
         return label
     }
 
     private lazy var tableView = UITableView()
+
+    private var docs = [Docs]()
 
     public var coordinator: MissionCoordinator?
 
@@ -47,14 +48,8 @@ class MissionListViewController: UIViewController {
 
         bind()
 
-    }
+        callAPI()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        Task {
-            await viewModel?.fetch()
-        }
     }
 
     // MARK: - functions
@@ -63,8 +58,11 @@ class MissionListViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
 
-        view.addSubview(errorLabel)
-        errorLabel.center = view.center
+        title = "Launches"
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        view.addSubview(statusLabel)
+        statusLabel.center = view.center
 
         setupTable()
 
@@ -73,17 +71,32 @@ class MissionListViewController: UIViewController {
     private func bind() {
         viewModel?.$launchesList
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { list in
+            .sink(receiveValue: { [weak self] list in
+                guard let self,
+                      let docs = list?.docs
+                else { return }
+
+                self.docs.append(contentsOf: docs)
+
                 self.tableView.reloadData()
             })
             .store(in: &cancellable)
 
         viewModel?.$error
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { error in
-                self.errorLabel.text = error
+            .sink(receiveValue: { [weak self] error in
+                guard let self else { return }
+
+                self.statusLabel.textColor = .systemRed
+                self.statusLabel.text = error
             })
             .store(in: &cancellable)
+    }
+
+    private func callAPI(page: Int = 1, limit: Int = 20) {
+        Task {
+            await viewModel?.fetch(page, limit: limit)
+        }
     }
 }
 
@@ -92,7 +105,12 @@ extension MissionListViewController: UITableViewDelegate, UITableViewDataSource 
 
     func setupTable() {
         view.addSubview(tableView)
-        tableView.fillSuperview()
+        tableView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            leading: view.leadingAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            trailing: view.trailingAnchor
+        )
 
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
@@ -114,22 +132,36 @@ extension MissionListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.launchesList?.docs?.count ?? 0
+        return docs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MissionTableViewCell.reuseIdentifier, for: indexPath) as? MissionTableViewCell,
-              let lists = viewModel?.launchesList
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MissionTableViewCell.reuseIdentifier, for: indexPath) as? MissionTableViewCell
         else { return UITableViewCell() }
 
-        cell.config(with: lists.docs?[indexPath.row])
+        cell.config(with: docs[indexPath.row])
 
         return cell
 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.pushToDetailsViewController(with: viewModel?.launchesList?.docs?[indexPath.row].id ?? "")
+        let docs = docs[indexPath.row]
+        coordinator?.pushToDetailsViewController(docs: docs)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard docs.count > 0
+        else { return }
+
+        let lastIndex = docs.count - 1
+
+        if indexPath.row == lastIndex,
+           let list = viewModel?.launchesList,
+           let hasNextPage = list.hasNextPage,
+           let nextPage = list.nextPage {
+            self.callAPI(page: nextPage, limit: 50)
+        }
     }
 }
