@@ -18,13 +18,15 @@ class MissionListViewModel: ObservableObject {
         self.service = service
     }
 
-    @MainActor
-    func fetch() async {
+    func fetch(_ page: Int, limit: Int) async {
 
         let query = Query(upcoming: false)
         let sort = Sort(flightNumber: .desc)
-        let options = Options(page: 1, sort: sort)
-
+        let options = Options(
+            limit: limit,
+            page: page,
+            sort: sort
+        )
 
         let queryDTO = QueryDTO(
             query: query,

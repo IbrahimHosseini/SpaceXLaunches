@@ -11,7 +11,6 @@
 		033CE9862BE15AD000FFE279 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9852BE15AD000FFE279 /* SceneDelegate.swift */; };
 		033CE98D2BE15AD200FFE279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CE98C2BE15AD200FFE279 /* Assets.xcassets */; };
 		033CE9902BE15AD200FFE279 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 033CE98F2BE15AD200FFE279 /* Base */; };
-		033CE99B2BE15AD200FFE279 /* SpaceXLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE99A2BE15AD200FFE279 /* SpaceXLaunchesTests.swift */; };
 		033CE9A52BE15AD200FFE279 /* SpaceXLaunchesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9A42BE15AD200FFE279 /* SpaceXLaunchesUITests.swift */; };
 		033CE9A72BE15AD200FFE279 /* SpaceXLaunchesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9A62BE15AD200FFE279 /* SpaceXLaunchesUITestsLaunchTests.swift */; };
 		033CE9B72BE15BA900FFE279 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9B62BE15BA900FFE279 /* Network.swift */; };
@@ -51,6 +50,16 @@
 		0390F6332BE43E4800800291 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390F6322BE43E4800800291 /* UIView+Extension.swift */; };
 		0390F6362BE4462400800291 /* ReusableIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390F6352BE4462400800291 /* ReusableIdentifiable.swift */; };
 		0390F6392BE450ED00800291 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390F6382BE450ED00800291 /* String+Extension.swift */; };
+		03DC2F5F2BE554930097B963 /* MissionDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F5E2BE554930097B963 /* MissionDetailsService.swift */; };
+		03DC2F622BE570D10097B963 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F612BE570D10097B963 /* Storage.swift */; };
+		03DC2F642BE570F10097B963 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F632BE570F10097B963 /* UserDefaultsStorage.swift */; };
+		03DC2F662BE7FE2E0097B963 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F652BE7FE2E0097B963 /* UIImageView+Extension.swift */; };
+		03DC2F682BE808670097B963 /* CombineCompatible+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F672BE808670097B963 /* CombineCompatible+Extension.swift */; };
+		03DC2F6F2BE82ACD0097B963 /* ReuseIdentifiable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F6E2BE82ACD0097B963 /* ReuseIdentifiable+Extension.swift */; };
+		03DC2F722BE847C50097B963 /* MockMissionListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F712BE847C50097B963 /* MockMissionListService.swift */; };
+		03DC2F752BE8488C0097B963 /* mockJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 03DC2F742BE8488C0097B963 /* mockJSON.json */; };
+		03DC2F792BE849610097B963 /* MissionListServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F782BE849610097B963 /* MissionListServiceTest.swift */; };
+		03DC2F7C2BE8511B0097B963 /* UserDefaultsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F7B2BE8511B0097B963 /* UserDefaultsTest.swift */; };
 		03EC52722BE4CEB7006BD0BE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC52712BE4CEB7006BD0BE /* Coordinator.swift */; };
 		03EC52742BE4CFAF006BD0BE /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -80,7 +89,6 @@
 		033CE98F2BE15AD200FFE279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		033CE9912BE15AD200FFE279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		033CE9962BE15AD200FFE279 /* SpaceXLaunchesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXLaunchesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		033CE99A2BE15AD200FFE279 /* SpaceXLaunchesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchesTests.swift; sourceTree = "<group>"; };
 		033CE9A02BE15AD200FFE279 /* SpaceXLaunchesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXLaunchesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		033CE9A42BE15AD200FFE279 /* SpaceXLaunchesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchesUITests.swift; sourceTree = "<group>"; };
 		033CE9A62BE15AD200FFE279 /* SpaceXLaunchesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchesUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -121,6 +129,16 @@
 		0390F6322BE43E4800800291 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0390F6352BE4462400800291 /* ReusableIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifiable.swift; sourceTree = "<group>"; };
 		0390F6382BE450ED00800291 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		03DC2F5E2BE554930097B963 /* MissionDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailsService.swift; sourceTree = "<group>"; };
+		03DC2F612BE570D10097B963 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		03DC2F632BE570F10097B963 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		03DC2F652BE7FE2E0097B963 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		03DC2F672BE808670097B963 /* CombineCompatible+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CombineCompatible+Extension.swift"; sourceTree = "<group>"; };
+		03DC2F6E2BE82ACD0097B963 /* ReuseIdentifiable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReuseIdentifiable+Extension.swift"; sourceTree = "<group>"; };
+		03DC2F712BE847C50097B963 /* MockMissionListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMissionListService.swift; sourceTree = "<group>"; };
+		03DC2F742BE8488C0097B963 /* mockJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockJSON.json; sourceTree = "<group>"; };
+		03DC2F782BE849610097B963 /* MissionListServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListServiceTest.swift; sourceTree = "<group>"; };
+		03DC2F7B2BE8511B0097B963 /* UserDefaultsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTest.swift; sourceTree = "<group>"; };
 		03EC52712BE4CEB7006BD0BE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,15 +191,14 @@
 		033CE9822BE15AD000FFE279 /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
+				03DC2F602BE570C30097B963 /* Storage */,
 				03EC52702BE4CEA7006BD0BE /* Coordinator */,
 				0390F6372BE4463500800291 /* Common */,
 				033CE9D02BE1750B00FFE279 /* Constants */,
 				033CE9B92BE15BB000FFE279 /* Enumerations */,
 				033CE9FB2BE188B900FFE279 /* Extensions */,
-				033CE9B82BE15BAD00FFE279 /* Models */,
 				033CE9B52BE15B9C00FFE279 /* Network */,
 				033CE9B42BE15B1400FFE279 /* Resources */,
-				033CE9BA2BE15BC700FFE279 /* Services */,
 				033CE9B32BE15B0100FFE279 /* Startup */,
 				0390F62B2BE436DA00800291 /* Application */,
 			);
@@ -191,7 +208,9 @@
 		033CE9992BE15AD200FFE279 /* SpaceXLaunchesTests */ = {
 			isa = PBXGroup;
 			children = (
-				033CE99A2BE15AD200FFE279 /* SpaceXLaunchesTests.swift */,
+				03DC2F7A2BE850EC0097B963 /* StorageTest */,
+				03DC2F732BE848740097B963 /* MockModel */,
+				03DC2F702BE847970097B963 /* MissionServiceTest */,
 			);
 			path = SpaceXLaunchesTests;
 			sourceTree = "<group>";
@@ -282,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				033CE9C72BE15D1100FFE279 /* MissionListViewController.swift */,
-				0390F6292BE432CC00800291 /* MissionTableViewCell.swift */,
+				03DC2F6B2BE829F30097B963 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,10 +325,13 @@
 		033CE9FB2BE188B900FFE279 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				033CE9F92BE1866600FFE279 /* Encodable+Extension.swift */,
+				03DC2F672BE808670097B963 /* CombineCompatible+Extension.swift */,
 				033CE9FC2BE19A0700FFE279 /* Dictionary+Extension.swift */,
-				0390F6322BE43E4800800291 /* UIView+Extension.swift */,
+				033CE9F92BE1866600FFE279 /* Encodable+Extension.swift */,
+				03DC2F6E2BE82ACD0097B963 /* ReuseIdentifiable+Extension.swift */,
 				0390F6382BE450ED00800291 /* String+Extension.swift */,
+				03DC2F652BE7FE2E0097B963 /* UIImageView+Extension.swift */,
+				0390F6322BE43E4800800291 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +339,7 @@
 		0390F62B2BE436DA00800291 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				033CE9B82BE15BAD00FFE279 /* Models */,
 				0390F62D2BE436FF00800291 /* MissionDetails */,
 				0390F62C2BE436E900800291 /* MissionList */,
 			);
@@ -326,6 +349,8 @@
 		0390F62C2BE436E900800291 /* MissionList */ = {
 			isa = PBXGroup;
 			children = (
+				03DC2F6D2BE82A760097B963 /* Coordinator */,
+				033CE9BA2BE15BC700FFE279 /* Services */,
 				033CE9C42BE15C6200FFE279 /* ViewModels */,
 				033CE9C32BE15C5800FFE279 /* Views */,
 			);
@@ -335,8 +360,9 @@
 		0390F62D2BE436FF00800291 /* MissionDetails */ = {
 			isa = PBXGroup;
 			children = (
-				0390F62E2BE4371E00800291 /* MissionDetailsViewController.swift */,
-				0390F6302BE4373800800291 /* MissionDetailsViewModel.swift */,
+				03DC2F6C2BE82A250097B963 /* Services */,
+				03DC2F6A2BE829CC0097B963 /* View */,
+				03DC2F692BE829BE0097B963 /* ViewModel */,
 			);
 			path = MissionDetails;
 			sourceTree = "<group>";
@@ -349,11 +375,84 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		03DC2F602BE570C30097B963 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				03DC2F612BE570D10097B963 /* Storage.swift */,
+				03DC2F632BE570F10097B963 /* UserDefaultsStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		03DC2F692BE829BE0097B963 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0390F6302BE4373800800291 /* MissionDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		03DC2F6A2BE829CC0097B963 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0390F62E2BE4371E00800291 /* MissionDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		03DC2F6B2BE829F30097B963 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0390F6292BE432CC00800291 /* MissionTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		03DC2F6C2BE82A250097B963 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				03DC2F5E2BE554930097B963 /* MissionDetailsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		03DC2F6D2BE82A760097B963 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		03DC2F702BE847970097B963 /* MissionServiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				03DC2F712BE847C50097B963 /* MockMissionListService.swift */,
+				03DC2F782BE849610097B963 /* MissionListServiceTest.swift */,
+			);
+			path = MissionServiceTest;
+			sourceTree = "<group>";
+		};
+		03DC2F732BE848740097B963 /* MockModel */ = {
+			isa = PBXGroup;
+			children = (
+				03DC2F742BE8488C0097B963 /* mockJSON.json */,
+			);
+			path = MockModel;
+			sourceTree = "<group>";
+		};
+		03DC2F7A2BE850EC0097B963 /* StorageTest */ = {
+			isa = PBXGroup;
+			children = (
+				03DC2F7B2BE8511B0097B963 /* UserDefaultsTest.swift */,
+			);
+			path = StorageTest;
+			sourceTree = "<group>";
+		};
 		03EC52702BE4CEA7006BD0BE /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				03EC52712BE4CEB7006BD0BE /* Coordinator.swift */,
-				03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -429,6 +528,7 @@
 					};
 					033CE9952BE15AD200FFE279 = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 						TestTargetID = 033CE97F2BE15AD000FFE279;
 					};
 					033CE99F2BE15AD200FFE279 = {
@@ -472,6 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DC2F752BE8488C0097B963 /* mockJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +598,7 @@
 				0390F62A2BE432CC00800291 /* MissionTableViewCell.swift in Sources */,
 				033CE9862BE15AD000FFE279 /* SceneDelegate.swift in Sources */,
 				033CE9E52BE17DEC00FFE279 /* Docs.swift in Sources */,
+				03DC2F5F2BE554930097B963 /* MissionDetailsService.swift in Sources */,
 				033CEA012BE1A2E300FFE279 /* Failures.swift in Sources */,
 				033CE9BC2BE15BDF00FFE279 /* Paths.swift in Sources */,
 				033CE9E72BE17DEC00FFE279 /* Flickr.swift in Sources */,
@@ -506,6 +608,7 @@
 				033CE9C02BE15C1100FFE279 /* APIHandler.swift in Sources */,
 				0390F6362BE4462400800291 /* ReusableIdentifiable.swift in Sources */,
 				033CE9B72BE15BA900FFE279 /* Network.swift in Sources */,
+				03DC2F662BE7FE2E0097B963 /* UIImageView+Extension.swift in Sources */,
 				0390F6312BE4373800800291 /* MissionDetailsViewModel.swift in Sources */,
 				033CE9E92BE17DEC00FFE279 /* Reddit.swift in Sources */,
 				0390F62F2BE4371E00800291 /* MissionDetailsViewController.swift in Sources */,
@@ -517,13 +620,17 @@
 				03EC52742BE4CFAF006BD0BE /* MissionCoordinator.swift in Sources */,
 				033CE9D42BE1768000FFE279 /* HTTPMethod.swift in Sources */,
 				033CE9D62BE1770100FFE279 /* APIClient.swift in Sources */,
+				03DC2F642BE570F10097B963 /* UserDefaultsStorage.swift in Sources */,
+				03DC2F622BE570D10097B963 /* Storage.swift in Sources */,
 				033CE9FD2BE19A0700FFE279 /* Dictionary+Extension.swift in Sources */,
 				033CE9E82BE17DEC00FFE279 /* Links.swift in Sources */,
 				033CE9F62BE1827900FFE279 /* QueryDTO.swift in Sources */,
 				033CE9FF2BE1A1E400FFE279 /* Fairings.swift in Sources */,
+				03DC2F682BE808670097B963 /* CombineCompatible+Extension.swift in Sources */,
 				033CE9C22BE15C2D00FFE279 /* ResponseHandler.swift in Sources */,
 				033CE9C82BE15D1100FFE279 /* MissionListViewController.swift in Sources */,
 				0390F6332BE43E4800800291 /* UIView+Extension.swift in Sources */,
+				03DC2F6F2BE82ACD0097B963 /* ReuseIdentifiable+Extension.swift in Sources */,
 				033CE9E62BE17DEC00FFE279 /* Patch.swift in Sources */,
 				033CE9CF2BE16BF100FFE279 /* MissionListViewModel.swift in Sources */,
 				033CE9F52BE1827900FFE279 /* Sort.swift in Sources */,
@@ -536,7 +643,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				033CE99B2BE15AD200FFE279 /* SpaceXLaunchesTests.swift in Sources */,
+				03DC2F792BE849610097B963 /* MissionListServiceTest.swift in Sources */,
+				03DC2F722BE847C50097B963 /* MockMissionListService.swift in Sources */,
+				03DC2F7C2BE8511B0097B963 /* UserDefaultsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +865,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z76K2Q3HH9;
@@ -765,6 +875,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sehosseini.SpaceXLaunchesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceXLaunches.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SpaceXLaunches";
@@ -776,6 +887,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z76K2Q3HH9;

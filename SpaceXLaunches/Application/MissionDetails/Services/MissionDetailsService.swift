@@ -46,7 +46,7 @@ class MissionDetailsServiceImp: MissionDetailsService {
     }
 
     func isMarked() -> Bool {
-        storageService.find(by: id)
+        storageService.isExist(by: id)
     }
 
 }

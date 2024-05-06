@@ -53,7 +53,7 @@ class MissionCoordinator: Coordinator {
               let id = docs.id
         else { return }
 
-        let storage = UserDefaultStorage()
+        let storage = UserDefaultStorage(key: "bookmarks")
 
         let service = MissionDetailsServiceImp(
             docs: docs,
@@ -74,11 +74,6 @@ class MissionCoordinator: Coordinator {
             animated: true
         )
 
-    }
-
-    // MARK: - pop to questionnaires list view
-    public func popToRootViewController() {
-        navigationController.popToRootViewController(animated: false)
     }
 
     func openUrl(_ url: String) {

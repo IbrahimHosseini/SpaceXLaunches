@@ -12,7 +12,6 @@ class MissionTableViewCell: UITableViewCell {
     private let flightNumberLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 35, weight: .heavy)
-        label.text = "100"
         return label
     }()
 
@@ -25,7 +24,6 @@ class MissionTableViewCell: UITableViewCell {
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
-        label.text = "Success"
         return label
     }()
 
@@ -34,7 +32,6 @@ class MissionTableViewCell: UITableViewCell {
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 12, weight: .light)
         label.textColor = .systemGray
-        label.text = "Description"
         return label
     }()
 
@@ -42,7 +39,6 @@ class MissionTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.text = "2024-02-12'T'19:00:00.000Z"
         return label
     }()
 
@@ -77,40 +73,33 @@ class MissionTableViewCell: UITableViewCell {
             )
         )
 
-        // add mission icon
+        // MARK: Flight number and Status stack
+        let flightNOAndStatusStack = UIStackView()
+        flightNOAndStatusStack.spacing = margin/2
+        flightNOAndStatusStack.axis = .vertical
+        flightNOAndStatusStack.distribution =  .equalSpacing
+        flightNOAndStatusStack.alignment = .center
+        flightNOAndStatusStack.constrain(widthConstant: 70)
+
+        // add flight number
+        flightNOAndStatusStack.addArrangedSubview(flightNumberLabel)
+        flightNOAndStatusStack.addArrangedSubview(statusLabel)
+
+        // MARK: Date and description stack
+        let dateAndDescriptionStack = UIStackView()
+        dateAndDescriptionStack.spacing = margin
+        dateAndDescriptionStack.axis = .vertical
+
+        dateAndDescriptionStack.addArrangedSubview(dateLabel)
+        dateAndDescriptionStack.addArrangedSubview(descriptionLabel)
+
+        // MARK: HStack items
         hStack.addArrangedSubview(icon)
         icon.constrain(widthConstant: 30)
         icon.constrain(heightConstant: 30)
 
-        let vStack = UIStackView()
-        vStack.spacing = margin
-        vStack.axis = .vertical
-
-        let flightAndIconStack = UIStackView()
-        flightAndIconStack.spacing = margin/2
-        flightAndIconStack.axis = .vertical
-        flightAndIconStack.distribution =  .equalSpacing
-        flightAndIconStack.alignment = .center
-        flightAndIconStack.constrain(widthConstant: 70)
-
-        // add flight number
-        flightAndIconStack.addArrangedSubview(flightNumberLabel)
-
-        flightAndIconStack.addArrangedSubview(statusLabel)
-
-
-        let dateStatusStack = UIStackView()
-        dateStatusStack.spacing = margin
-        dateStatusStack.distribution = .fill
-
-        dateStatusStack.addArrangedSubview(dateLabel)
-
-        vStack.addArrangedSubview(dateStatusStack)
-
-        vStack.addArrangedSubview(descriptionLabel)
-
-        hStack.addArrangedSubview(flightAndIconStack)
-        hStack.addArrangedSubview(vStack)
+        hStack.addArrangedSubview(flightNOAndStatusStack)
+        hStack.addArrangedSubview(dateAndDescriptionStack)
 
     }
 
@@ -119,8 +108,8 @@ class MissionTableViewCell: UITableViewCell {
 
         flightNumberLabel.text = "\(model.flightNumber ?? 0)"
 
-        statusLabel.text = model.success == true ? "Success" : "Fail"
-        statusLabel.textColor = model.success == true ? .systemGreen : .systemRed
+        statusLabel.text = (model.success ?? false) ? "Success" : "Fail"
+        statusLabel.textColor = (model.success ?? false) ? .systemGreen : .systemRed
 
         descriptionLabel.text = model.details
 
