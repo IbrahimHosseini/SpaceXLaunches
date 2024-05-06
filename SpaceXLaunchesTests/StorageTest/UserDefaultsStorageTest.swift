@@ -1,5 +1,5 @@
 //
-//  UserDefaultsTest.swift
+//  UserDefaultsStorageTest.swift
 //  SpaceXLaunchesTests
 //
 //  Created by Ibrahim Hosseini on 5/6/24.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import SpaceXLaunches
 
-final class UserDefaultsTest: XCTestCase {
+final class UserDefaultsStorageTest: XCTestCase {
 
     var storage: Storage?
 
@@ -65,7 +65,7 @@ final class UserDefaultsTest: XCTestCase {
 
 }
 
-extension UserDefaultsTest {
+extension UserDefaultsStorageTest {
     private func fetchAll() -> [String] {
         storage!.fetchAll()
     }
