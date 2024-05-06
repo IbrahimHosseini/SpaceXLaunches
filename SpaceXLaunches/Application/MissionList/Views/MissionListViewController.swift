@@ -15,14 +15,6 @@ class MissionListViewController: UIViewController {
 
     private var viewModel: MissionListViewModel?
 
-    private var statusLabel = UILabel()
-//    {
-//        let label = UILabel(frame: CGRect(x: 0, y: view.bounds.height/3, width: view.bounds.width, height: 50))
-//        label.text = "LOADING..."
-//        label.textAlignment = .center
-//        return label
-//    }
-
     private lazy var tableView = UITableView()
 
     private var docs = [Docs]()
@@ -63,9 +55,6 @@ class MissionListViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
 
         setupTable()
-
-        updateMessageView("LOADING...")
-
     }
 
     private func bind() {
@@ -86,8 +75,6 @@ class MissionListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] error in
                 guard let self else { return }
-
-                self.statusLabel.textColor = .systemRed
                 self.updateMessageView(error)
 
             })
@@ -102,6 +89,9 @@ class MissionListViewController: UIViewController {
 
     private func updateMessageView(_ message: String) {
         let statusView = UIView()
+        let statusLabel = UILabel()
+        statusLabel.textColor = .systemRed
+        
         statusView.addSubview(statusLabel)
 
         statusLabel.text = message
