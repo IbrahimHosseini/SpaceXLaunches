@@ -47,8 +47,6 @@ class MissionDetailsViewController: UIViewController {
 
     public var coordinator: MissionCoordinator?
 
-    private var bookmarkAction: (() -> Void)?
-
     // MARK: - initializer
 
     init(_ viewModel: MissionDetailsViewModel) {
