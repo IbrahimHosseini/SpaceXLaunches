@@ -156,44 +156,44 @@ class MissionDetailsViewController: UIViewController {
     private func bind() {
         viewModel.$missionName
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { value in
-                self.title = value
+            .sink(receiveValue: { [weak self] value in
+                self?.title = value
             })
             .store(in: &cancellable)
 
         viewModel.$missionDetails
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { value in
-                self.descriptionLabel.text = value
+            .sink(receiveValue: { [weak self] value in
+                self?.descriptionLabel.text = value
             })
             .store(in: &cancellable)
 
         viewModel.$missionDate
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { value in
-                self.dateLabel.text = value
+            .sink(receiveValue: { [weak self] value in
+                self?.dateLabel.text = value
             })
             .store(in: &cancellable)
 
         viewModel.$imageUrl
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { value in
-                self.missionImageView.load(with: value)
+            .sink(receiveValue: { [weak self] value in
+                self?.missionImageView.load(with: value)
             })
             .store(in: &cancellable)
 
         viewModel.$wikiLink
             .receive(on: RunLoop.main)
-            .sink { link in
-                self.linkButton.isHidden = link.isEmpty
-                self.linkButton.setTitle(link, for: .normal)
+            .sink { [weak self] link in
+                self?.linkButton.isHidden = link.isEmpty
+                self?.linkButton.setTitle(link, for: .normal)
             }
             .store(in: &cancellable)
 
         viewModel.$isMarked
             .receive(on: DispatchQueue.main)
-            .sink { isMarked in
-                self.updateBookmarkState(with: isMarked)
+            .sink { [weak self] isMarked in
+                self?.updateBookmarkState(with: isMarked)
             }
             .store(in: &cancellable)
 
