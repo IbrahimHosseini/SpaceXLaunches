@@ -26,7 +26,7 @@ class Network<EndpointType: APIEndpoint>: APIClient {
         else { return .failure(.badRequest)}
 
         do {
-            let data = try await apiHandler.getData(type: T.self, url: request)
+            let data = try await apiHandler.getData(with: request)
             let response = await responseHandler.getResponse(type: T.self, data: data)
 
             switch response {

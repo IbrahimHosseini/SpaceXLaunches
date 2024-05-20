@@ -8,12 +8,14 @@
 import Foundation
 
 protocol APIHandler {
-    func getData<T: Decodable> (type: T.Type, url: URLRequest) async throws -> Data
+    func getData(with request: URLRequest) async throws -> Data
 }
 
 class APIHandlerImp: APIHandler {
-    func getData<T>(type: T.Type, url: URLRequest) async throws -> Data where T : Decodable {
-        let (data, _ ) = try await URLSession.shared.data(for: url)
+    func getData(with request: URLRequest) async throws -> Data {
+        let (data, _ ) = try await URLSession.shared.data(for: request)
         return data
     }
 }
+
+
