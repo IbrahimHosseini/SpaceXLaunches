@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0309A96F2BFAD85F004C9FCB /* MissionDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0309A96E2BFAD85F004C9FCB /* MissionDetailsCoordinator.swift */; };
 		033CE9842BE15AD000FFE279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9832BE15AD000FFE279 /* AppDelegate.swift */; };
 		033CE9862BE15AD000FFE279 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CE9852BE15AD000FFE279 /* SceneDelegate.swift */; };
 		033CE98D2BE15AD200FFE279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CE98C2BE15AD200FFE279 /* Assets.xcassets */; };
@@ -61,7 +62,7 @@
 		03DC2F792BE849610097B963 /* MissionListServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F782BE849610097B963 /* MissionListServiceTest.swift */; };
 		03DC2F7C2BE8511B0097B963 /* UserDefaultsStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC2F7B2BE8511B0097B963 /* UserDefaultsStorageTest.swift */; };
 		03EC52722BE4CEB7006BD0BE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC52712BE4CEB7006BD0BE /* Coordinator.swift */; };
-		03EC52742BE4CFAF006BD0BE /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */; };
+		03EC52742BE4CFAF006BD0BE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC52732BE4CFAF006BD0BE /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0309A96E2BFAD85F004C9FCB /* MissionDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailsCoordinator.swift; sourceTree = "<group>"; };
 		033CE9802BE15AD000FFE279 /* SpaceXLaunches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXLaunches.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		033CE9832BE15AD000FFE279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		033CE9852BE15AD000FFE279 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +142,7 @@
 		03DC2F782BE849610097B963 /* MissionListServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListServiceTest.swift; sourceTree = "<group>"; };
 		03DC2F7B2BE8511B0097B963 /* UserDefaultsStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorageTest.swift; sourceTree = "<group>"; };
 		03EC52712BE4CEB7006BD0BE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
+		03EC52732BE4CFAF006BD0BE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,7 +421,8 @@
 		03DC2F6D2BE82A760097B963 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				03EC52732BE4CFAF006BD0BE /* MissionCoordinator.swift */,
+				03EC52732BE4CFAF006BD0BE /* MainCoordinator.swift */,
+				0309A96E2BFAD85F004C9FCB /* MissionDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -617,7 +620,7 @@
 				033CE9BE2BE15BF000FFE279 /* NetworkError.swift in Sources */,
 				0390F6392BE450ED00800291 /* String+Extension.swift in Sources */,
 				033CE9EA2BE17DEC00FFE279 /* Crew.swift in Sources */,
-				03EC52742BE4CFAF006BD0BE /* MissionCoordinator.swift in Sources */,
+				03EC52742BE4CFAF006BD0BE /* MainCoordinator.swift in Sources */,
 				033CE9D42BE1768000FFE279 /* HTTPMethod.swift in Sources */,
 				033CE9D62BE1770100FFE279 /* APIClient.swift in Sources */,
 				03DC2F642BE570F10097B963 /* UserDefaultsStorage.swift in Sources */,
@@ -625,6 +628,7 @@
 				033CE9FD2BE19A0700FFE279 /* Dictionary+Extension.swift in Sources */,
 				033CE9E82BE17DEC00FFE279 /* Links.swift in Sources */,
 				033CE9F62BE1827900FFE279 /* QueryDTO.swift in Sources */,
+				0309A96F2BFAD85F004C9FCB /* MissionDetailsCoordinator.swift in Sources */,
 				033CE9FF2BE1A1E400FFE279 /* Fairings.swift in Sources */,
 				03DC2F682BE808670097B963 /* CombineCompatible+Extension.swift in Sources */,
 				033CE9C22BE15C2D00FFE279 /* ResponseHandler.swift in Sources */,

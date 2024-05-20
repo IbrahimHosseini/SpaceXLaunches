@@ -13,8 +13,8 @@ class Network<EndpointType: APIEndpoint>: APIClient {
     private let responseHandler: ResponseHandler
 
     init(
-        apiHandler: APIHandler,
-        responseHandler: ResponseHandler
+        apiHandler: APIHandler = APIHandlerImp(),
+        responseHandler: ResponseHandler = ResponseHandlerImp()
     ) {
         self.apiHandler = apiHandler
         self.responseHandler = responseHandler
