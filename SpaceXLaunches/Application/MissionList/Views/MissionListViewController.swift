@@ -19,7 +19,7 @@ class MissionListViewController: UIViewController {
 
     private var docs = [Docs]()
 
-    public var coordinator: MissionCoordinator?
+    public var coordinator: MainCoordinator?
 
     // MARK: - initializer
     init(viewModel: MissionListViewModel?) {

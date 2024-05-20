@@ -22,10 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let missionCoordinator = MissionCoordinator()
-        missionCoordinator.start()
+        let navigationController = UINavigationController()
 
-        window?.rootViewController = missionCoordinator.navigationController
+        let coordinator = MainCoordinator(navigationController: navigationController)
+        coordinator.start()
+
+        window?.rootViewController = coordinator.navigationController
 
         window?.makeKeyAndVisible()
     }

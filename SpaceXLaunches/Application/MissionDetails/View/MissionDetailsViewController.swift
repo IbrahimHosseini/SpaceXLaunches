@@ -45,7 +45,7 @@ class MissionDetailsViewController: UIViewController {
 
     private var cancellable = Set<AnyCancellable>()
 
-    public var coordinator: MissionCoordinator?
+    public weak var coordinator: MissionDetailsCoordinator?
 
     // MARK: - initializer
 
