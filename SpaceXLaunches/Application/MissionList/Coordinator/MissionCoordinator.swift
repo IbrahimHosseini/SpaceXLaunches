@@ -53,19 +53,17 @@ class MissionCoordinator: Coordinator {
               let id = docs.id
         else { return }
 
-        let storage = UserDefaultStorage(key: "bookmarks")
+        let storageService = UserDefaultStorage(key: "bookmarks")
 
         let service = MissionDetailsServiceImp(
             docs: docs,
-            storageService: storage,
+            storageService: storageService,
             id: id
         )
 
         let viewModel = MissionDetailsViewModel(service: service)
 
-        let viewController = MissionDetailsViewController(
-            viewModel
-        )
+        let viewController = MissionDetailsViewController(viewModel)
         
         viewController.coordinator = self
 
