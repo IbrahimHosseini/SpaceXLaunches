@@ -12,7 +12,7 @@ protocol ResponseHandler {
 }
 
 class ResponseHandlerImp: ResponseHandler {
-    func getResponse<T>(type: T.Type, data: Data) async -> (Result<T, NetworkError>) where T : Decodable {
+    func getResponse<T: Decodable>(type: T.Type, data: Data) async -> (Result<T, NetworkError>) {
 
         do {
             let response = try JSONDecoder().decode(type.self, from: data)
