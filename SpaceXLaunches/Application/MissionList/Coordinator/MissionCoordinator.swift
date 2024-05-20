@@ -26,7 +26,7 @@ class MissionCoordinator: Coordinator {
         self.responseHandler = responseHandler
     }
 
-    public func start() {
+    func start() {
         // implement network layer
         let network = Network<LaunchesAPI>(
             apiHandler: APIHandlerImp(),
