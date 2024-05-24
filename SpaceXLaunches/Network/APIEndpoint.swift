@@ -8,8 +8,11 @@
 import Foundation
 
 protocol APIEndpoint {
-
-    /// base of API url
+    
+    /// The `var baseURL: URL { get }` in the `APIEndpoint` protocol is declaring a read-only computed
+    /// property named `baseURL` of type `URL`. This property is part of the protocol requirements,
+    /// meaning any type that conforms to the `APIEndpoint` protocol must provide an implementation for
+    /// this property.
     var baseURL: URL { get }
 
     /// path of the endpoint API

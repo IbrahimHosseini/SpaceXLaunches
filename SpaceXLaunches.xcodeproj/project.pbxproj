@@ -173,10 +173,10 @@
 		033CE9772BE15AD000FFE279 = {
 			isa = PBXGroup;
 			children = (
+				033CE9812BE15AD000FFE279 /* Products */,
 				033CE9822BE15AD000FFE279 /* SpaceXLaunches */,
 				033CE9992BE15AD200FFE279 /* SpaceXLaunchesTests */,
 				033CE9A32BE15AD200FFE279 /* SpaceXLaunchesUITests */,
-				033CE9812BE15AD000FFE279 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,16 +193,16 @@
 		033CE9822BE15AD000FFE279 /* SpaceXLaunches */ = {
 			isa = PBXGroup;
 			children = (
-				03DC2F602BE570C30097B963 /* Storage */,
-				03EC52702BE4CEA7006BD0BE /* Coordinator */,
+				0390F62B2BE436DA00800291 /* Application */,
 				0390F6372BE4463500800291 /* Common */,
 				033CE9D02BE1750B00FFE279 /* Constants */,
+				03EC52702BE4CEA7006BD0BE /* Coordinator */,
 				033CE9B92BE15BB000FFE279 /* Enumerations */,
 				033CE9FB2BE188B900FFE279 /* Extensions */,
 				033CE9B52BE15B9C00FFE279 /* Network */,
 				033CE9B42BE15B1400FFE279 /* Resources */,
 				033CE9B32BE15B0100FFE279 /* Startup */,
-				0390F62B2BE436DA00800291 /* Application */,
+				03DC2F602BE570C30097B963 /* Storage */,
 			);
 			path = SpaceXLaunches;
 			sourceTree = "<group>";
@@ -238,10 +238,10 @@
 		033CE9B42BE15B1400FFE279 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				033CE9CA2BE15DCD00FFE279 /* Configuration.plist */,
 				033CE98C2BE15AD200FFE279 /* Assets.xcassets */,
-				033CE98E2BE15AD200FFE279 /* LaunchScreen.storyboard */,
+				033CE9CA2BE15DCD00FFE279 /* Configuration.plist */,
 				033CE9912BE15AD200FFE279 /* Info.plist */,
+				033CE98E2BE15AD200FFE279 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -249,13 +249,13 @@
 		033CE9B52BE15B9C00FFE279 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				033CE9B62BE15BA900FFE279 /* Network.swift */,
-				033CE9BF2BE15C1100FFE279 /* APIHandler.swift */,
-				033CE9C12BE15C2D00FFE279 /* ResponseHandler.swift */,
-				033CE9CC2BE169A200FFE279 /* Configuration.swift */,
-				033CE9D32BE1768000FFE279 /* HTTPMethod.swift */,
 				033CE9D52BE1770100FFE279 /* APIClient.swift */,
 				033CE9D72BE1771A00FFE279 /* APIEndpoint.swift */,
+				033CE9BF2BE15C1100FFE279 /* APIHandler.swift */,
+				033CE9CC2BE169A200FFE279 /* Configuration.swift */,
+				033CE9D32BE1768000FFE279 /* HTTPMethod.swift */,
+				033CE9B62BE15BA900FFE279 /* Network.swift */,
+				033CE9C12BE15C2D00FFE279 /* ResponseHandler.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -284,8 +284,8 @@
 		033CE9B92BE15BB000FFE279 /* Enumerations */ = {
 			isa = PBXGroup;
 			children = (
-				033CE9BB2BE15BDF00FFE279 /* Paths.swift */,
 				033CE9BD2BE15BF000FFE279 /* NetworkError.swift */,
+				033CE9BB2BE15BDF00FFE279 /* Paths.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
