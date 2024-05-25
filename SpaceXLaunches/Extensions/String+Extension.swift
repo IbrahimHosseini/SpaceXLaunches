@@ -9,12 +9,17 @@ import Foundation
 
 extension String {
     var toStringDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssZ"
-        let date = dateFormatter.date(from: self)
+        
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [
+            .withInternetDateTime,
+            .withFractionalSeconds
+        ]
+
+        guard let date = dateFormatter.date(from: self)
+        else { return "date format is not iso8601" }
 
         // change to a readable time format and change to local time zone
-        dateFormatter.dateFormat = "MMM dd, yyyy"
-        return dateFormatter.string(from: date!)
+        return date.formatted(date: .long, time: .omitted)
     }
 }
