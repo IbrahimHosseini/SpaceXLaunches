@@ -8,11 +8,11 @@
 import Foundation
 
 protocol ResponseHandler {
-    func getResponse<T: Decodable>(type: T.Type, data: Data) async -> (Result<T, NetworkError>)
+    func getResponse<T: Decodable>(type: T.Type, data: Data) async -> Result<T, NetworkError>
 }
 
 class ResponseHandlerImp: ResponseHandler {
-    func getResponse<T: Decodable>(type: T.Type, data: Data) async -> (Result<T, NetworkError>) {
+    func getResponse<T: Decodable>(type: T.Type, data: Data) async -> Result<T, NetworkError> {
 
         do {
             let response = try JSONDecoder().decode(type.self, from: data)

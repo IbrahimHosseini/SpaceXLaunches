@@ -18,5 +18,5 @@ protocol APIClient {
     /// This `func request<T: Decodable>(_ endpoint: EndpointType) async -> (Result<T, NetworkError>)`
     /// function in the `APIClient` protocol is a method signature that defines a function for making
     /// asynchronous network requests.
-    func request<T: Decodable>(_ endpoint: EndpointType) async -> (Result<T, NetworkError>)
+    func request<T: Decodable>(_ endpoint: EndpointType) async -> Result<T, NetworkError>
 }

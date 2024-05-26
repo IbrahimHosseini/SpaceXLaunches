@@ -55,6 +55,9 @@ extension APIEndpoint {
     /// `httpBody` property, it will default to an empty dictionary when creating the API request.
     var httpBody: [String: Any]? { [:] }
 
+}
+
+extension APIEndpoint {
     // This `asURLRequest()` function is part of the `APIEndpoint` protocol extension in Swift. It is a
     // method that converts the endpoint information into a `URLRequest` object that can be used to
     // make network requests.

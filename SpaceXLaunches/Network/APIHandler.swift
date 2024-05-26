@@ -19,8 +19,12 @@ protocol APIHandler {
 /// implementation for the required method `getData(with request: URLRequest) async throws -> Data`.
 class APIHandlerImp: APIHandler {
     func getData(with request: URLRequest) async throws -> Data {
-        let (data, _ ) = try await URLSession.shared.data(for: request)
-        return data
+        do {
+            let (data, _ ) = try await URLSession.shared.data(for: request)
+            return data
+        } catch {
+            throw NetworkError.noData
+        }
     }
 }
 

@@ -20,10 +20,10 @@ class Network<EndpointType: APIEndpoint>: APIClient {
         self.responseHandler = responseHandler
     }
 
-    func request<T: Decodable>(_ endpoint: EndpointType) async -> (Result<T, NetworkError>) {
+    func request<T: Decodable>(_ endpoint: EndpointType) async -> Result<T, NetworkError> {
 
         guard let request = try? endpoint.asURLRequest()
-        else { return .failure(.badRequest)}
+        else { return .failure(.badRequest) }
 
         do {
             let data = try await apiHandler.getData(with: request)
