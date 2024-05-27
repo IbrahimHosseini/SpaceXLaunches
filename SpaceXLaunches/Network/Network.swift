@@ -26,14 +26,28 @@ class Network<EndpointType: APIEndpoint>: APIClient {
         else { return .failure(.badRequest) }
 
         do {
-            let data = try await apiHandler.getData(with: request)
-            let response = await responseHandler.getResponse(type: T.self, data: data)
+            let (data, urlRequest) = try await apiHandler.getData(with: request)
 
-            switch response {
-            case .success(let model):
-                return .success(model)
-            case .failure(let error):
-                return .failure(error)
+            guard let request = urlRequest as? HTTPURLResponse
+            else { return .failure(.badRequest) }
+
+            if 200..<300 ~= request.statusCode {
+
+                let response = await responseHandler.getResponse(type: T.self, data: data)
+
+                switch response {
+                case .success(let model):
+                    return .success(model)
+                case .failure(let error):
+                    return .failure(error)
+                }
+
+            } else if request.statusCode == 401 {
+                return .failure(.authorizationFailed)
+            } else if request.statusCode == 404 {
+                return .failure(.notFound)
+            } else {
+                return .failure(.badRequest)
             }
 
         } catch {
