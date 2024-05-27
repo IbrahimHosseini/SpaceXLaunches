@@ -19,11 +19,18 @@ protocol APIHandler {
 /// implementation for the required method `getData(with request: URLRequest) async throws -> Data`.
 class APIHandlerImp: APIHandler {
     func getData(with request: URLRequest) async throws -> Data {
-        do {
-            let (data, _ ) = try await URLSession.shared.data(for: request)
+
+        let (data, httpRequest) = try await URLSession.shared.data(for: request)
+
+        guard let statusCode = (httpRequest as? HTTPURLResponse)?.statusCode
+        else { throw NetworkError.badRequest }
+
+        if 200..<300 ~=  statusCode {
             return data
-        } catch {
-            throw NetworkError.noData
+        } else if statusCode == 401 {
+            throw NetworkError.notFound
+        } else {
+            throw NetworkError.badRequest
         }
     }
 }

@@ -12,6 +12,7 @@ enum NetworkError: LocalizedError {
     case noData
     case decodingFailed
     case badRequest
+    case notFound
 
     var errorDescription: String? {
         switch self {
@@ -19,6 +20,7 @@ enum NetworkError: LocalizedError {
         case .noData: "No Data"
         case .decodingFailed: "Decoding Failed"
         case .badRequest: "Bad Request"
+        case .notFound: "Not Found!"
         }
     }
 }
