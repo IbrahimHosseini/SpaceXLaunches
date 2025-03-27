@@ -22,9 +22,7 @@ class MissionDetailsViewModel: ObservableObject {
         self.service = service
 
         // get launch details and update UI
-        if let docs = self.getLaunchDetails() {
-            updateUI(docs)
-        }
+        updateUI()
 
         // check the item that is was bookmarked or not
         let status = getIsMarkedStatus()
@@ -35,14 +33,24 @@ class MissionDetailsViewModel: ObservableObject {
     }
 
     // MARK: - functions
+    
+    func removeBookmark() {
+        guard let service else { return }
+        service.removeFromFavorite()
+    }
+    
+    func addBookmark() {
+        guard let service else { return }
+        service.addToFavorite()
+    }
 
     public func bookmarkChanges(_ isMarked: Bool) {
         guard let service else { return }
 
         if isMarked {
-            service.addToFavorite()
+            addBookmark()
         } else {
-            service.removeFromFavorite()
+            removeBookmark()
         }
 
         changeIsMarkedStatus(isMarked)
@@ -62,6 +70,13 @@ class MissionDetailsViewModel: ObservableObject {
         guard let service else { return nil }
 
         return service.getDetails()
+    }
+    
+    // MARK: - helper
+    // updateUI refactor
+    func updateUI() {
+        guard let docs = getLaunchDetails() else { return }
+        updateUI(docs)
     }
 
     private func updateUI(_ docs: Docs) {

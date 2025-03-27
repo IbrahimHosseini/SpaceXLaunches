@@ -1,0 +1,19 @@
+{
+	"name": "xcode build server",
+	"version": "0.2",
+	"bspVersion": "2.0",
+	"languages": [
+		"c",
+		"cpp",
+		"objective-c",
+		"objective-cpp",
+		"swift"
+	],
+	"argv": [
+		"/opt/homebrew/bin/xcode-build-server"
+	],
+	"workspace": "/Users/ibrahim/Developer/SpaceXLaunches/SpaceXLaunches.xcodeproj/project.xcworkspace",
+	"build_root": "/Users/ibrahim/Library/Developer/Xcode/DerivedData/SpaceXLaunches-bbjutfdwqknvtfehpxinltmsfuxa",
+	"scheme": "SpaceXLaunches",
+	"kind": "xcode"
+}
